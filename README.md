@@ -5,6 +5,11 @@
 Resposta:\
 [Repositório do Github com implementação](https://github.com/flpfraga/Anagramas)
 
+<br></br>
+---
+---
+<br></br>
+
 **Questão 2 - equals e hashCode**
 
 **Resposta:**
@@ -92,6 +97,10 @@ Cenários de teste:
     
     [Testes unitários](https://github.com/flpfraga/exemplosCodigo/tree/master/src/test/java)
 
+<br></br>
+---
+---
+<br></br>
 
 
 **Questão 3 - Design Patterns**
@@ -124,9 +133,19 @@ biblioteca dentro do adapter e dos requisitos do sistema.\
 \
 [Exemplo no repositório](https://github.com/flpfraga/exemplosCodigo/tree/master/src/main/java/org/example/design_patter)
 
+<br></br>
+---
+---
+<br></br>
+
 **Questão 4 - Angular**
     **Resposta:**\
     Tenho algum conhecimento, mas não tenho experiência.
+
+<br></br>
+---
+---
+<br></br>
 
 **Questão 5 - SQL Injection**
 
@@ -182,6 +201,11 @@ enviados para a consulta. Por exemplo, anotar uma parâmetros com \@email
 vai garantir que apenas padrão de caracteres tipo email chegue na camada
 de banco de dados.
 
+<br></br>
+---
+---
+<br></br>
+
 **Questão 6 - Queries SQL**
 
 a. Returns the names of all Salesperson that don't have any order with Samsonic.**
@@ -220,6 +244,11 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
     FROM Salesperson s
     LEFT JOIN Orders o ON s.ID = o.salesperson_id
     GROUP BY s.Name;
+
+<br></br>
+---
+---
+<br></br>
 
 **Questão 7 - História do usuário**
 
@@ -557,6 +586,10 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 
     ![image](https://github.com/user-attachments/assets/9d6c3ab3-0183-4bca-80e8-f0b63c6ae958)
 
+<br></br>
+---
+---
+<br></br>
 
 **Questão 8 - Descrição de testes para funcionalidade usuário**
 
