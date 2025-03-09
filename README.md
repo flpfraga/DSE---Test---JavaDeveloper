@@ -194,13 +194,13 @@ a. Returns the names of all Salesperson that don't have any order with Samsonic.
 b. Updates the names of Salesperson that have 2 or more orders. It's necessary to add an '\*' in the end of the name.
 
     UPDATE Salesperson s
-    SET s.Name = CONCAT(s.Name, \'\*\')\
+    SET s.Name = CONCAT(s.Name, '*')
     WHERE s.ID IN (
         SELECT s.ID
         FROM Salesperson s
         JOIN Orders o ON s.ID = o.salesperson_id
         GROUPY BY s.ID
-        HAVING COUNT(o.ID) \>= 2
+        HAVING COUNT(o.ID) >= 2
     );
 
 c. Deletes all Ssalesperson that placed orders to the city of Jackson.
@@ -216,9 +216,9 @@ c. Deletes all Ssalesperson that placed orders to the city of Jackson.
 
 d. The total sales amount for each Salesperson. If the salesperson hasn't sold anything, show zero.
 
-    SELECT s.Name, COALESCE(SUM(o.Amount), 0) AS total\
-    FROM Salesperson s\
-    LEFT JOIN Orders o ON s.ID = o.salesperson_id\
+    SELECT s.Name, COALESCE(SUM(o.Amount), 0) AS total
+    FROM Salesperson s
+    LEFT JOIN Orders o ON s.ID = o.salesperson_id
     GROUP BY s.Name;
 
 **Questão 7 - História do usuário**
@@ -229,17 +229,17 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 
 1.  **Objetivo**
 
-    1.  **User Story**\
+    1.  **User Story**
         > **Como** usuário administrador do sistema\
         > **Quero** criar, atualizar e buscar plantas\
         > **Para que** possa gerenciar todo o sistema de XYZ
 
-    2.  **Cenário Atual**\
+    2.  **Cenário Atual**
         > Atualmente o sistema XYZ não dispõe de entrada de dados para
         > plantas e de funcionalidades para gerenciar as plantas no
         > sistema como persisitir, atualizar, buscar ou deletar.
 
-    3.  **Problema a ser resolvido**\
+    3.  **Problema a ser resolvido**
         > Deverá ser habilitado uma nova entrada de dados, onde serão
         > informados dados relativos a planta, bem como funcionalidades
         > de gerenciamento das informações relativas.
@@ -553,7 +553,9 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
             **E** inserir no campo descrição o valor "**a1b2"**\
             **ENTÃO** será retornado uma mensgem de usuário proibido
 
-    7.  **Arquitetura** 
+    7.  **Arquitetura**
+
+    ![image](https://github.com/user-attachments/assets/9d6c3ab3-0183-4bca-80e8-f0b63c6ae958)
 
 
 **Questão 8 - Descrição de testes para funcionalidade usuário**
@@ -638,7 +640,7 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 
 -   **Código de cenário de teste:**
 
-    -   **Cenário 1 -- Teste unitário criar usuário:**\
+    -   **Cenário 1 -- Teste unitário criar usuário:**
         
             void testCriarUsuarioComSucesso(){
             Usuario usuario = new Usuario ();
@@ -670,7 +672,7 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
         -   Verificar o retorno de sucesso do sistema;
 
         -   Executar no banco de dados a query para buscar o usuário.
-            Não deve retornar nenhuma linha:\
+            Não deve retornar nenhuma linha:
             
                 SELECT * FROM Usuario u WHERE u.email = {email_do_usuario}
 
@@ -688,6 +690,6 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 
         -   Executar no banco de dados a query para buscar o usuário.
             Deve ser retornar uma linha com o usuário de email
-            informado:\
+            informado:
             
                 SELECT * FROM Usuario u WHERE u.email = {email_do_usuario}
