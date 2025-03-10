@@ -147,7 +147,43 @@ biblioteca dentro do adapter e dos requisitos do sistema.\
 ---
 <br></br>
 
-**Questão 5 - SQL Injection**
+**Questão 6 - Otimização de processo batch com banco de dados e FTP**
+
+**Resposta:**
+
+O primeiro passo para um diagnóstico possíveis problemas é monitorar os sistema para possibilitar entender seu comportamento. Neste caso em específicos podemos identificar três processos, processamento batch, interação com banco de 
+dados e interação com servidor FTP. Assim, é preciso gerar logs e dados de métricas para cada um desses processos separadamente e também para o processo como um todo. Isto é possível com Splunk para monitorar logs, Promethues para coletar e armazenar dados de métricas e o Grafana, que recebe dados de métricas e possibilita, através de dashboards, visualização do comportamento do sistema. Para estes processos seria importante monitorar uso de CPU e memória, tempo de execução de cada um dos processos separados, taxa de erros, número de consultas ao banco de dados, número de interações com o processo FTP.
+
+O monitoramento é a chave para atuar na melhoria do sistema. Com ele é possível identificar gargalos criados por:
+- uso excessivo de memória e CPU que podem afetar a velocidade do processamento
+- horários de maior latência na interação com processo FTP
+- número de consultas ao banco de dados
+- processos que estão gerando muitos erros
+- processos que alto tempo de execução
+
+Para otimizar as consulta de banco de dados algumas possíveis soluções seria:
+- Criar um pool de conexões para evitar que o sistema tenha que abrir e fechar diversas conexões com o banco de dados;
+- Utilizar do Redis para possibilitar que consultas repetitivas seja realizada no cache e não no banco de dados;
+- Utilizar de Store procedures para a execução de múltiplas queries, melhorando o desempenho e reduzindo a latência, uma vez que procedures ficam armazenadas na memória do banco
+- Indexação para reduzir tempo de busca;
+
+A execução lógica é a melhoria do código em si, valendo para isto também do uso de recursos da linguagem de programação. Deve ser observado no código:
+- Evitar aninhamentos de laços de repetição. Essa prática aumenta as ordens de grandezas dos algoritmos, que por sua vez, levam mais tempo para processar.
+- Verificar a possibilidade do HashMap que tem tempo de busca otimizado através de chaves.
+- Uso de paralelismo através de threads e parallelStream
+- Utilizar ferramentas como SonarQube que identifica pontos de melhoria no código.
+
+A melhoria da interação com o processo FTP está fortemente condicionada a limitações da internet. Assim algumas práticas podem melhorar essa interação:
+- Compressão dos arquivos a serem enviados, diminui o número de pacotes e também o tempo de transmissão;
+- Escolha de horários de menor latência para a execução dos processos batch. Horários noturnos e outros que podem ser identificados através do monitoramento, tendem a ter menor tráfego de rede e reduzir a latência.
+- Identificar as interações que podem ser feitas de forma assíncrona. Deste modo, não bloqueamos o sistema para continuar sua execução.
+
+<br></br>
+---
+---
+<br></br>
+
+**Questão 6 - SQL Injection**
 
 **Resposta:**
 
@@ -206,7 +242,7 @@ de banco de dados.
 ---
 <br></br>
 
-**Questão 6 - Queries SQL**
+**Questão 7 - Queries SQL**
 
 a. Returns the names of all Salesperson that don't have any order with Samsonic.**
     
@@ -250,7 +286,7 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 ---
 <br></br>
 
-**Questão 7 - História do usuário**
+**Questão 8 - História do usuário**
 
 **Resposta:**
 
@@ -591,7 +627,7 @@ d. The total sales amount for each Salesperson. If the salesperson hasn't sold a
 ---
 <br></br>
 
-**Questão 8 - Descrição de testes para funcionalidade usuário**
+**Questão 9 - Descrição de testes para funcionalidade usuário**
 
 **Resposta:**
 
